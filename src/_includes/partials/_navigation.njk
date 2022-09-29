@@ -1,0 +1,50 @@
+<!-- _includes/partials/_navigation.njk -->
+<header>
+  <nav class="py-4 text-white bg-black shadow-lg">
+    <div class="w-4/5 mx-auto">
+      <div class="flex justify-between">
+        <div>
+          <p class="text-2xl font-extrabold uppercase">TEMPLATE</p>
+        </div>
+        <div class="items-center hidden space-x-4 md:flex">
+          {%- for item in collections.page -%}
+          <a class="font-bold" href="{{ item.url }}">{{ item.data.title }}</a>
+          {%- endfor -%}
+        </div>
+        <div class="flex items-center md:hidden">
+          <button class="outline-none mobile-menu-button">
+            <svg
+              class="w-8 h-8 text-gray-500 p-0.5 rounded border-2 border-white"
+              x-show="!showMenu"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="white"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:hidden mobile-menu">
+      <ul class="flex-col py-4 space-y-4 text-center">
+        {%- for item in collections.page -%}
+        <li>
+          <a href="{{ item.url }}">{{ item.data.title }}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    <script>
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </nav>
+</header>

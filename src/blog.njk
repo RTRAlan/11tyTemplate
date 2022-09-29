@@ -1,0 +1,26 @@
+---
+layout: base
+title: "Blog"
+description: This is the blog home
+tags: page
+order: 3
+---
+
+<div class="w-4/5 mx-auto">
+  <h1 class="text-3xl font-bold underline uppercase">Blog Home</h1>
+  <div class="grid grid-cols-3 gap-8">
+    <div class="col-span-2 col-start-1">
+      <ul class="">
+        {% for post in collections.post | reverse %}
+        <li
+          class="flex flex-col p-4 my-4 border-2 border-red-700 rounded-xl bg-gradient-to-r from-red-700/20 to-red-500/10"
+        >
+          <a class="font-bold" href="{{ post.url }}">{{ post.data.title }}</a>
+          <p>{% excerpt post %}</p>
+          <p class="text-xs">{{ post.date | postDate }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

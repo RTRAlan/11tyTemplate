@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2? 
+     family=Sora:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="/assets/css/style.css" /> -->
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
+    <title>My Eleventy Site - Blog </title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta
+      name="description"
+      content="
+      
+        This is the blog home
+      
+    "
+    />
+  </head>
+  <body class="bg-stone-200">
+    <!-- _includes/partials/_navigation.njk -->
+<header>
+  <nav class="py-4 text-white bg-black shadow-lg">
+    <div class="w-4/5 mx-auto">
+      <div class="flex justify-between">
+        <div>
+          <p class="text-2xl font-extrabold uppercase">TEMPLATE</p>
+        </div>
+        <div class="items-center hidden space-x-4 md:flex"><a class="font-bold" href="/">Home</a><a class="font-bold" href="/about/">About</a><a class="font-bold" href="/blog/">Blog</a><a class="font-bold" href="/contact/">Contact</a></div>
+        <div class="flex items-center md:hidden">
+          <button class="outline-none mobile-menu-button">
+            <svg
+              class="w-8 h-8 text-gray-500 p-0.5 rounded border-2 border-white"
+              x-show="!showMenu"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="white"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:hidden mobile-menu">
+      <ul class="flex-col py-4 space-y-4 text-center"><li>
+          <a href="/">Home</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/blog/">Blog</a>
+        </li><li>
+          <a href="/contact/">Contact</a>
+        </li></ul>
+    </div>
+    <script>
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </nav>
+</header>
+
+    <main class="min-h-screen py-12">
+      
+<div class="w-4/5 mx-auto">
+  <h1 class="text-3xl font-bold underline uppercase">Blog Home</h1>
+  <div class="grid grid-cols-3 gap-8">
+    <div class="col-span-2 col-start-1">
+      <ul class="">
+        
+        <li
+          class="flex flex-col p-4 my-4 border-2 border-red-700 rounded-xl bg-gradient-to-r from-red-700/20 to-red-500/10"
+        >
+          <a class="font-bold" href="/blog/thirdpost/">Third Post</a>
+          <p><p>This is info for the third blog post.</p></p>
+          <p class="text-xs">Sep 20, 2022</p>
+        </li>
+        
+        <li
+          class="flex flex-col p-4 my-4 border-2 border-red-700 rounded-xl bg-gradient-to-r from-red-700/20 to-red-500/10"
+        >
+          <a class="font-bold" href="/blog/secondpost/">Second Post</a>
+          <p><p>This is info for the second blog post.</p></p>
+          <p class="text-xs">Sep 19, 2022</p>
+        </li>
+        
+        <li
+          class="flex flex-col p-4 my-4 border-2 border-red-700 rounded-xl bg-gradient-to-r from-red-700/20 to-red-500/10"
+        >
+          <a class="font-bold" href="/blog/firstpost/">First Post</a>
+          <p><p>This is info for the first blog post.</p></p>
+          <p class="text-xs">Sep 18, 2022</p>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </main>
+    <!-- _includes/partials/_navigation.njk -->
+<footer class="py-4 bg-black text-gray-50">
+  <div class="mx-auto max-w-screen-2xl">
+    <p class="space-x-6 text-lg text-center"><a href="/">Home</a><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></p>
+  </div>
+</footer>
+
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

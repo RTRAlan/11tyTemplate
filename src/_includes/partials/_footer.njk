@@ -1,0 +1,10 @@
+<!-- _includes/partials/_navigation.njk -->
+<footer class="py-4 bg-black text-gray-50">
+  <div class="mx-auto max-w-screen-2xl">
+    <p class="space-x-6 text-lg text-center">
+      {%- for item in collections.page -%}
+      <a href="{{ item.url }}">{{ item.data.title }}</a>
+      {%- endfor -%}
+    </p>
+  </div>
+</footer>

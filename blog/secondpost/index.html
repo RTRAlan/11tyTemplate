@@ -11,8 +11,10 @@
      family=Sora:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="/assets/css/style.css" /> -->
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
     <title>My Eleventy Site - Second Post </title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <meta
       name="description"
       content="
@@ -22,30 +24,102 @@
     "
     />
   </head>
-  <body>
+  <body class="bg-stone-200">
     <!-- _includes/partials/_navigation.njk -->
-<nav><a href="/">Home</a><a href="/about/">About</a><a href="/blog/">Blog</a></nav>
+<header>
+  <nav class="py-4 text-white bg-black shadow-lg">
+    <div class="w-4/5 mx-auto">
+      <div class="flex justify-between">
+        <div>
+          <p class="text-2xl font-extrabold uppercase">TEMPLATE</p>
+        </div>
+        <div class="items-center hidden space-x-4 md:flex"><a class="font-bold" href="/">Home</a><a class="font-bold" href="/about/">About</a><a class="font-bold" href="/blog/">Blog</a><a class="font-bold" href="/contact/">Contact</a></div>
+        <div class="flex items-center md:hidden">
+          <button class="outline-none mobile-menu-button">
+            <svg
+              class="w-8 h-8 text-gray-500 p-0.5 rounded border-2 border-white"
+              x-show="!showMenu"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="white"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:hidden mobile-menu">
+      <ul class="flex-col py-4 space-y-4 text-center"><li>
+          <a href="/">Home</a>
+        </li><li>
+          <a href="/about/">About</a>
+        </li><li>
+          <a href="/blog/">Blog</a>
+        </li><li>
+          <a href="/contact/">Contact</a>
+        </li></ul>
+    </div>
+    <script>
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
 
-    <main>
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </nav>
+</header>
+
+    <main class="min-h-screen py-12">
       
-<h1>Second Post</h1>
+<div class="w-4/5 mx-auto">
+  <h1>Second Post</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla pellentesque dignissim enim sit amet. Morbi tristique senectus et netus. Ultricies mi eget mauris pharetra et. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Risus pretium quam vulputate dignissim suspendisse in. Velit laoreet id donec ultrices tincidunt arcu. Nisl rhoncus mattis rhoncus urna. Nisl pretium fusce id velit ut tortor pretium. Habitant morbi tristique senectus et netus et. Tristique risus nec feugiat in fermentum posuere. Aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod. Eget magna fermentum iaculis eu non.</p>
 
-<br />
-  Previous:
-<a href="/blog/firstpost/">First Post</a
->
-<br />
-Next: <a href="/blog/thirdpost/">Third Post</a
->
+  <br />
+   
+<div class="flex justify-between">
+  <div>
+    <span class="font-bold">Previous:</span>
+    <a href="/blog/firstpost/">First Post</a
+    >
+  </div>
+  <div>
+    <span class="font-bold">Next:</span>
+    <a href="/blog/thirdpost/">Third Post</a
+    >
+  </div>
+</div>
 
-<br />
-<hr />
-<a href="/blog">Blog Home</a>
+  <br />
+  <hr />
+  <br />
+  <a href="/blog">Blog Home</a>
+</div>
 
     </main>
     <!-- _includes/partials/_navigation.njk -->
-<nav><a href="/">Home</a><a href="/about/">About</a><a href="/blog/">Blog</a></nav>
+<footer class="py-4 bg-black text-gray-50">
+  <div class="mx-auto max-w-screen-2xl">
+    <p class="space-x-6 text-lg text-center"><a href="/">Home</a><a href="/about/">About</a><a href="/blog/">Blog</a><a href="/contact/">Contact</a></p>
+  </div>
+</footer>
 
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
